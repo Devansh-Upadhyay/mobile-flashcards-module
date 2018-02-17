@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { white, yellow, gray, darkGray, red, green } from '../utils/colors';
+import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
 
 class StartQuiz extends Component{
 	state = {
@@ -21,7 +22,12 @@ class StartQuiz extends Component{
 	countAnswer = (increment) => {
 		let { activeIndex, questions, correctAnswers } = this.state
 
+		//user finished quiz
 		if ((activeIndex+1) >= questions.length){
+			// Clear local notification
+			clearLocalNotification()
+			      .then(setLocalNotification);
+			
 			return this.setState({
 				correctAnswers: correctAnswers + increment,
 				endQuiz: true
