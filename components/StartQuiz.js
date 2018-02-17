@@ -61,17 +61,14 @@ class StartQuiz extends Component{
 			return(
                 <View style={[styles.container]}>
 					<View style={styles.center}>
-						<Text style={styles.textCentral}>Congrats! Quiz has finished, your score was: {correctAnswers}/{questions.length}</Text>
+						<Text style={styles.textCentral}>Congrats, Quiz has finished! </Text>
+						<Text style={{color: darkGray, fontSize: 20}}>Your score was: {correctAnswers}/{questions.length}</Text>
 						<TouchableOpacity style={[styles.btn, styles.mainBtn]}
 							onPress={this.restartQuiz}
 						>
 						<Text style={styles.textBtn}>Restart quiz</Text>
 						</TouchableOpacity>
 						<TouchableOpacity style={[styles.btn, styles.mainBtn]} 
-						/* onPress={() => this.props.navigation.goBack(
-							'DeckDetail',
-							{ title: title}
-						)} */
 							onPress={() => this.props.navigation.goBack()}
 						>
 							<Text style={styles.textBtn}>Back to Deck</Text>
