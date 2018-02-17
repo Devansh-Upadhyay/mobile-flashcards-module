@@ -22,21 +22,9 @@ class NewDeck extends Component{
     }
 
     toNewDeck = (title) => {
-        //this.props.navigation.dispatch(NavigationActions.navigate('DeckDetail', { title: title}))
         this.props.navigation.navigate('DeckDetail', { title: title})
     }
 
-    toHome = (title) => {
-        this.props.navigation.dispatch(NavigationActions.back({key: 'NewDeck'}))
-        //this.props.navigation.navigate('DeckDetail', { title: title})
-    }
-
-    clearStorage = () => {
-    	clearStorage();
-    	
-        //Navigate to Home
-        this.toHome();
-    }
 
     submit = () => {
         const { title } = this.state;
@@ -75,11 +63,6 @@ class NewDeck extends Component{
 			 	/>
 			 	<SubmitBtn onPress={this.submit} /> 		
 
-			 	<TouchableOpacity
-		            style={styles.submitBtn }
-		            onPress={this.clearStorage}> 
-		            <Text style={styles.submitBtnText}>CLEAR STORAGE</Text>
-		        </TouchableOpacity>	
 			</View>
 		)
 	}
